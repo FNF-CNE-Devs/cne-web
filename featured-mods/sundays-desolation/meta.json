@@ -1,6 +1,6 @@
 {
     "name": "Sunday's Desolation",
-    "description": "",
+    "description": "A fanmade Wednesday's Infidelity mod based off of D-Side concepts and the Untold Loneliness song.",
     "author": "GusDeGreat & Ragnaroswar",
     "version": "1.0.0",
     "link": "https://gamebanana.com/mods/483496",
@@ -8,5 +8,5 @@
 
     "lastUpdated": "2023-12-10T12:29:00.000Z",
 
-    "tags": ["featured", "softcoded"]
+    "tags": ["softcoded"]
 }
