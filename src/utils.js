@@ -4,6 +4,24 @@ var path = require("path");
 var hljs = require('highlight.js');
 var fs = require('fs');
 var sass = require('sass');
+var CleanCSS = require('clean-css');
+var UglifyJS = require("uglify-js");
+
+var isFullBuild = false;
+var isWatch = false;
+var isFirstRun = false;
+var isRelease = false;
+
+function setGlobals(data) {
+	isFullBuild = data.isFullBuild;
+	isWatch = data.isWatch;
+	isFirstRun = data.isFirstRun;
+	isRelease = data.isRelease;
+}
+
+function getGlobals() {
+	return {isFullBuild, isWatch, isFirstRun, isRelease};
+}
 
 function fixPath(url) {
 	return url.replaceAll(path.sep, path.posix.sep);
@@ -121,9 +139,38 @@ function copyDir(src, dest) {
 		if (stats.isDirectory()) {
 			copyDir(srcPath, destPath);
 		} else {
-			fs.copyFileSync(srcPath, destPath);
+			if(isRelease) {
+				if(item.endsWith(".js")) {
+					compileJs(srcPath, destPath);
+				} else if(item.endsWith(".css")) {
+					compileCss(srcPath, destPath);
+				} else if(item.endsWith(".scss")) {
+					compileSass(srcPath, destPath);
+				} else {
+					fs.copyFileSync(srcPath, destPath);
+				}
+			} else {
+				fs.copyFileSync(srcPath, destPath);
+			}
 		}
 	}
+}
+
+function compileJs(file, dest) {
+	if(isRelease) {
+		var content = fs.readFileSync(file, 'utf8');
+		var result = UglifyJS.minify(content);
+		if(result.error) {
+			console.error(result.error);
+			console.error("Error minifying file: " + file);
+			console.error("Skipping...");
+			fs.copyFileSync(file, dest);
+			return;
+		}
+		fs.writeFileSync(dest, result.code);
+		return;
+	}
+	fs.copyFileSync(file, dest);
 }
 
 function parseTemplate(html, vars) {
@@ -166,13 +213,31 @@ function compileSass(file, dest) {
 			}
 		}]
 	});
+	if(isRelease) {
+		result.css = new CleanCSS({
+			level: 2
+		}).minify(result.css).styles;
+	}
 	fs.writeFileSync(dest, result.css);
 }
 
+function compileCss(file, dest) {
+	var content = fs.readFileSync(file, 'utf8');
+	if(isRelease) {
+		content = new CleanCSS({
+			level: 2
+		}).minify(content).styles;
+	}
+	fs.writeFileSync(dest, content);
+}
+
 module.exports = {
+	setGlobals: setGlobals,
+	getGlobals: getGlobals,
 	fixPath: fixPath,
 	fixHtmlRefs: fixHtmlRefs,
 	copyDir: copyDir,
 	parseTemplate: parseTemplate,
 	compileSass: compileSass,
+	compileJs: compileJs,
 }

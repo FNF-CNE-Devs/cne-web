@@ -13,8 +13,8 @@ a {
   border: solid rgba(0, 0, 0, 0.2) 2px;
 
   &:hover {
-    filter: brightness(140%) saturate(140%);
-    backdrop-filter: brightness(140%) saturate(140%);
+    filter: brightness(140%);
+    backdrop-filter: brightness(140%);
   }
 }
 
@@ -23,6 +23,7 @@ a {
 }
 
 header {
+  height: 75px;
   display: flex;
   padding: 0em 2em;
   box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.3), 0px 0px 0px 2px rgba(0, 0, 0, 0.2) inset;
@@ -47,6 +48,9 @@ header {
       align-items: center;
 
       >img {
+        height: 40px;
+        width: auto !important;
+        max-width: fit-content !important;
         /*! max-height: 30%; */
         margin-right: 0.5em;
       }
@@ -90,7 +94,9 @@ br {
 .header {
   position: relative;
   z-index: 5;
-  background: linear-gradient(0deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: url("img/top-bar-bg.png");
+  background-position: center center;
+  background-size: cover;
 }
 
 body {
@@ -241,6 +247,16 @@ form input {
 
 img {
   max-width: 100%;
+}
+
+header {
+  position: relative;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media screen and (max-width: 35.5em) {

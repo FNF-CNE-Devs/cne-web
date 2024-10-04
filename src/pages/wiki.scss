@@ -38,11 +38,12 @@
   > {
     .selected {
       &:hover:before {
-        background: rgb(166, 86, 241);
+        background: var(--primary-color);
+        filter: brightness(140%);
       }
 
       &:before {
-        background: #531a7d;
+        background: var(--primary-color);
       }
     }
 
@@ -107,6 +108,7 @@
   }
 
   .sidebar {
+    width: 80%;
     position: fixed;
     left: -100%;
     transition: left 0.3s ease-in-out;

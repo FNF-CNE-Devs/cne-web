@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ pageTitle }} - Codename Engine Docs</title>
-	<link rel="stylesheet" href="root/style.css?index">
-	<link rel="stylesheet" href="root/index.css?index">
+	<link rel="stylesheet" href="root/style.css">
+	<link rel="stylesheet" href="root/index.css">
 
 	<meta name="title" content="{{ pageTitle }} - Codename Engine Docs" />
 	<meta name="description" content="Website dedicated to things for Codename Engine!" />
@@ -29,22 +29,14 @@
 	<link href='https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' rel='stylesheet' type='text/css' />
 </head>
 <body class="nojs">
-	<script>
-		document.body.classList.remove("nojs");
-	</script>
+	<script>document.body.classList.remove("nojs");</script>
 	<div class="header">
 		{{ header }}
 	</div>
 	<div class="container">
-		<div class="content">
-			<div class="logo-container">
-				<div class="logo">
-					<img class="logo-bg" src="img/logo-cne.png" alt="Codename Engine Logo">
-					<img class="question" src="img/question.png">
-				</div>
-			</div>
-			<h2 style="margin-bottom: 0.3em;">Codename Engine</h2>
-			<div class="compact"><sub>seriously we need an actual logo for this</sub></div>
+		<div class="content main-content">
+			<img class="content-logo" src="root/img/codename-animated.gif" />
+			<br />
 
 			<a href="/api-docs/" class="default-button">API</a>
 			<a href="/wiki/" class="default-button">Wiki</a>
@@ -140,14 +132,15 @@
 			<div class="featured-mods">
 				<!-- <img class="sparkles" src="https://i.gifer.com/XZ5V.gif"> -->
 				{{#mods}}
-				<div class="featured-mod {{#tags}}{{.}} {{/tags}}" data-time="{{lastUpdated}}" data-author="{{author}}" data-source="{{source}}" data-version="{{version}}" data-tags="{{tagsRaw}}">
+				<div class="featured-mod{{#tags}} {{.}}{{/tags}}" data-time="{{lastUpdated}}" data-author="{{author}}" data-source="{{source}}" data-version="{{version}}" data-tags="{{tagsRaw}}">
 					<a href="{{link}}">
-						<img src="{{image}}" />
+						<img src="{{image}}" loading="lazy" alt="{{name}}"/>
 						<div class="card-content">
 							<h3>{{name}}</h3>
 							<p>{{description}}</p>
-							<span class="last-updated hide-nojs" data-time="{{lastUpdated}}" style="display:none;">{{lastUpdated}}</span>
 						</div>
+						<span class="placement hide-nojs">cne</span>
+						<span class="last-updated hide-nojs" data-time="{{lastUpdated}}" style="display:none;">{{lastUpdated}}</span>
 					</a>
 				</div>
 				{{/mods}}

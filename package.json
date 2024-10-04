@@ -21,6 +21,8 @@
     "remarkable": "^2.0.1"
   },
   "devDependencies": {
-    "sass": "^1.79.1"
+    "clean-css": "^5.3.3",
+    "sass": "^1.79.1",
+    "uglify-js": "^3.19.3"
   }
 }

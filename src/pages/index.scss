@@ -73,14 +73,22 @@ div.compact {
         display: block;
     }
 
-    .content.mods {
-        width: fit-content !important;
-        margin: 0 !important;
+    div.content {
+        &.main-content {
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        &.mods {
+            width: fit-content !important;
+            margin: 0 !important;
+        }
     }
 }
 
 @media screen and (min-width: 30.5em) {
-    .content {
+    div.content {
         margin: 1.5em 1.5em;
         margin-right: 0;
 
@@ -94,8 +102,16 @@ div.compact {
     }
 }
 
+@media screen and (max-width: 35.5em) {
+    div.content {
+        &.main-content {
+            width: 100%;
+        }
+    }
+}
+
 @media screen and (min-width: 80.5em) {
-    .content {
+    div.content {
         margin: 3em 1.5em;
         margin-right: 0;
 
@@ -106,6 +122,12 @@ div.compact {
 
     img {
         max-width: 60%;
+    }
+}
+
+@media screen and (max-width: 315px) {
+    .featured-mod {
+        width: 100%!important;
     }
 }
 
@@ -122,10 +144,14 @@ div.compact {
 .content {
     flex-grow: 1;
 
+    &.main-content {
+        width: 60%;
+    }
+
     &.mods {
         flex-grow: 0;
         width: 565px;
-        display: table;
+        //display: table;
         padding: 0;
     }
 }
@@ -153,7 +179,7 @@ div.compact {
     transition: background-color 0.2s; // , transform 0.2s
     margin: 6px;
     //will-change: transform;
-    height: min-content;
+    //height: min-content;
 
     a {
         text-decoration: none;
@@ -183,8 +209,12 @@ div.compact {
     .card-content {
         text-align: left;
         padding: 10px;
-        height: 90px;
-        position: relative;
+    }
+
+    .last-updated {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
     }
 
     h3 {
@@ -218,27 +248,32 @@ div.compact {
     }
 }
 
+.placement {
+    opacity: 0;
+}
+
 .featured-mod.upcoming {
     display: none;
 }
 
+// .sort-button:not(.selected) {
+//     filter: brightness(70%);
+// }
+
 .sort-button.selected {
-    background: #7c39ae;
+    background: var(--primary-color);
 }
 
 .last-updated {
     color: #8e7a9a;
     font-size: 0.8em;
-    left: 10px;
-    bottom: 10px;
-    position: absolute;
 }
 
 .sort-buttons {
     margin: 0 !important;
 }
 
-.category-button {
+.category-button, .order-button {
     margin-bottom: 0;
     border: solid rgba(0, 0, 0, 0.1) 2px;
     border-bottom: none;
@@ -263,4 +298,9 @@ div.compact {
     p {
         margin-top: 0.25em;
     }
+}
+
+.content-logo {
+    width: 90%;
+    margin-top: 1em;
 }

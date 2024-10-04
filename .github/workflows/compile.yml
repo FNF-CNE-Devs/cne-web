@@ -36,11 +36,11 @@ jobs:
 
       - name: Install Haxelib dependencies
         run: |
-          haxelib --global install dox 1.6.0
-          haxelib --global install hxtemplo 3.2.0
-          haxelib --global install hxparse 4.3.0
-          haxelib --global install hxargs 4.0.0
-          haxelib --global install markdown 1.1.3
+          haxelib --global install dox 1.6.0 --quiet
+          haxelib --global install hxtemplo 3.2.0 --quiet
+          haxelib --global install hxparse 4.3.0 --quiet
+          haxelib --global install hxargs 4.0.0 --quiet
+          haxelib --global install markdown 1.1.3 --quiet
 
       - run: npm install
       - run: npm run build:full ./

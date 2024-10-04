@@ -1,10 +1,9 @@
 <header>
 	<a href="/">
-		<img src="/img/logo-header.png" style="width: 50px;" alt="Codename Logo" />
-		<h2 class="mobile">CNE</h2>
-		<h2 class="desktop">Codename Engine</h2>
+		<img src="/img/logo-banner.png" alt="Codename Logo" class="desktop"/>
+        <img src="/img/logo-banner-mini.png" alt="Codename Logo" class="mobile"/>
 	</a>
-	<h2>::api.currentPageName::</h2>
+	<h2 class="header-title">::api.currentPageName::</h2>
 	<div>
 		<a href="/api-docs/">API</a><a href="/wiki/">Wiki</a>
 	</div>
