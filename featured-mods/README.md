@@ -56,6 +56,7 @@
        - `hardcoded` - Use this if your mod is a **hardcoded Codename Engine mod**.
        - `long-desc` - Use this if your mod has a long description. (sizes it down)
        - `longer-desc` - Use this if your mod has a longer description. (sizes it down even more)
+       - `longerer-desc` - Use this if your mod has a longerer description. (sizes it down even more)
        - `long-title` - Use this if your mod has a long title. (sizes it down)
        - `longer-title` - Use this if your mod has a longer title. (sizes it down even more)
        - `upcoming` - Use this if your mod is **not yet released**.
