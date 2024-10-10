@@ -75,4 +75,5 @@
        - `length-very-long` - Use this if your mod is **very long**.
 
    - If you have custom tags that will be used when we add searching. add them to `"userTags": []` in `meta.json`.
+   - *(pstt)* Its me ItsLJcool! Use `LJ Arcade Compatible` in `userTags` field if you added custom support for LJ Arcade!! Please dont take this down moderators.
 ### Thank you for your contribution!

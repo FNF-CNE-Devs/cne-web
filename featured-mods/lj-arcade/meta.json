@@ -1,0 +1,13 @@
+{
+    "name": "LJ Aracde",
+    "description": "Played a mod, but you 100%'d it? Well you can play the mod with LJ Arcade!\nLJ Arcade will support ALL mods by default. If you own a mod, you can add support for LJ Arcade, like custom challenges for specific songs. You can even CODE custom challenges.",
+    "author": "ItsLJcool",
+    "version": "alpha / unreleased",
+    "link": "https://github.com/ItsLJcool/LJ-Arcade-CNE",
+
+    "lastUpdated": "unreleased",
+
+    "tags": ["softcoded", "longer-desc", "upcoming", "difficulty-normal", "length-medium"],
+
+    "userTags": ["ItsLJcool", "LJ Arcade Compatible"]
+}
